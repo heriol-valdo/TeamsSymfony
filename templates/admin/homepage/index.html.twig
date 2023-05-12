@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h2>Dashboard</h2>
+	<p>
+		<a href="{{ url('admin.player.index') }}">Players</a>
+	</p>
+
+	<p>
+		<a href="{{ url('admin.nation.index') }}">Nation</a>
+	</p>
+{% endblock %}

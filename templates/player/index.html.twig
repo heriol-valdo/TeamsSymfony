@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h2>Players</h2>
+	<div class="row">
+		{% for player in entities %}
+			<div class="col-3">
+				<img src="{{ asset('img/' ~ player.portrait) }}" alt="" class="img-fluid">
+				<h5>{{ player.firstname ~ ' ' ~ player.lastname }}</h3>
+				<p>Birthday: {{ player.birthday | date('d/m/Y') }}</p>
+				<p>
+					<a href="{{ url('player.details',
+						{ firstname: player.firstname, lastname: player.lastname, id: player.id }
+					) }}" class="btn btn-primary">Details</a>
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

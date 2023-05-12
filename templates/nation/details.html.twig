@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-3">
+			<img src="{{ asset('img/' ~ entity.image) }}" class="img-fluid" alt="">
+		</div>
+		<div class="col-9">
+			<h2>{{ entity.name}}</h2>
+			
+			<p>
+				<a href="{{ url('nation.index') }}" class="btn btn-secondary">Back to Nation</a>
+			</p>
+		</div>
+	</div>
+{% endblock %}

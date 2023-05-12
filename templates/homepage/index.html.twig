@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	{# app.user : accéder à l'utilisateur #}
+	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+		<p>Connected as {{ app.user.email }}</p>
+	{% endif %}
+
+	{% if is_granted('ROLE_ADMIN') %}
+		<p>Connected as admin</p>
+	{% endif %}
+	
+	{# {{ dump(app.user) }} #}
+	
+
+	{{ '<h1>Titre</h1>' }}
+	{# commentaire #}
+	{# {% instructions %} #}
+
+	<ul>
+		{# myarray est la clé renvoyée par le contrôleur #}
+		{% for item in myarray  %}
+			<li>{{ item }}</li>
+		{% endfor %}
+	</ul>
+
+	<ol>
+		{# myAssocArray est la clé renvoyée par le contrôleur #}
+		{% for key, value in myAssocArray %}
+			<li>{{ key ~ ' : ' ~ value }}</li>
+		{% endfor %}
+	</ol>
+
+	{# condition #}
+	{% if value == true %}
+		<p>Valeur positive</p>
+	{% else %}
+		<p>Valeur négative</p>
+	{% endif %}
+
+	{# filtres #}
+	<p>Il y a {{ myAssocArray | length }} éléments dans le array</p>
+	<h2>{{ 'title' | capitalize | upper }}</h2>
+	<p>{{ now | date('d/m/Y H:i:s') }}</p>
+{% endblock %}

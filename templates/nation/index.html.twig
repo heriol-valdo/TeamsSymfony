@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h2>Nation</h2>
+	<div class="row">
+		{% for nation in entities %}
+			<div class="col-3">
+				<img src="{{ asset('img/' ~ nation.image) }}" alt="" class="img-fluid">
+				<h5>{{ nation.name }}</h3>
+				
+				<p>
+					<a href="{{ url('nation.details',
+						{ name: nation.name,  id: nation.id }
+					) }}" class="btn btn-primary">Details</a>
+				</p>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}

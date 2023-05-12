@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{# bloc contenu #}
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1>Hello {{ name | capitalize }}, {{ age }} years old</h1>
+		</div>
+	</div>
+{% endblock %}
+
+{# bloc titre #}
+{% block title %}
+	My project
+{% endblock %}
+
+{# bloc CSS #}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/hello.css') }}">
+{% endblock %}

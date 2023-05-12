@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<h2>Nation</h2>
+
+	{{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
+		<p>
+			{{ form_label(form.name, 'Name :') }}
+			{{ form_widget(form.name) }}
+			{{ form_errors(form.name) }}
+		</p>
+		<p>
+			{{ form_label(form.image, 'image :') }}
+			{{ form_widget(form.image) }}
+			{{ form_errors(form.image) }}
+		</p>
+		
+		<p>
+			<input type="submit" class="btn btn-primary">
+		</p>
+	{{ form_end(form) }}
+{% endblock %}

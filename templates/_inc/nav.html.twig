@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+		{# fonction url :
+			- permet de créer un lien absolu
+			- nécessaire de cibler le nom des routes contenues dans les contrôleurs
+		#}
+      <a class="navbar-brand" href="{{ url('homepage.index') }}">My project</a>
+    
+	  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('homepage.index') }}">Home</a>
+        </li>
+		{#
+			créer un lien vers une page contenant des variables d'url
+				- affecter des valeurs aux variables d'url en second paramètre de la fonction url
+		#}
+        <li class="nav-item">
+          <a class="nav-link" href="{{
+				url('homepage.hello', { name: 'alice', age: 30 })
+			}}">Hello</a>
+        </li>
+		
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('player.index') }}">Players</a>
+        </li>
+      </ul>
+
+	  <ul class="navbar-nav">
+	  	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{ url('security.logout') }}">Sign out</a>
+			</li>
+		{% else %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{ url('security.login') }}">Sign in</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ url('registration.register') }}">Register</a>
+			</li>
+		{% endif %}
+
+		{% if is_granted('ROLE_ADMIN') %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{ url('admin.homepage.index') }}">Dashboard</a>
+			</li>
+
+
+			
+		{% endif %}
+		
+	  </ul>
+
+      {# <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> #}
+    </div>
+  </div>
+</nav>
